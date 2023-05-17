@@ -1,11 +1,9 @@
 #include <iostream>
-#include <fstream>
 
 using namespace std;
 
 const int NUMBER_OF_QUEENS = 8; // Constant: eight queens
 int queens[NUMBER_OF_QUEENS];
-ofstream output;
 
 // Check whether a queen can be placed at row i and column j 
 bool isValid(int row, int column)
@@ -23,18 +21,14 @@ void printResult()
 {
 	static int count = 0;
 	count++;
-	output.open("Values_Recursion.txt", ios::app);
 	cout << "\nSoution " << count << endl;
   cout << "---------------------------------\n";
   for (int row = 0; row < NUMBER_OF_QUEENS; row++)
   {
-		output << queens[row];
     for (int column = 0; column < NUMBER_OF_QUEENS; column++)
       printf(column == queens[row] ? "| Q " : "|   ");
     cout << "|\n---------------------------------\n";
   }
-	output << endl;
-	output.close();
 }
 
 // Search to place a queen at the specified row 
